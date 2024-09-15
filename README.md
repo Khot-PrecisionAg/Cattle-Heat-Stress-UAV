@@ -29,6 +29,7 @@ Process:
 This algorithm provides a thermal image distortion correction method. It addresses radial distortion in UAV thermal images due to wide-angle lenses by using camera calibration parameters. The corrected images are then used for further processing, such as body surface temperature extraction.
 
 Thermal images were corrected using the camera matrix and distortion coefficients obtained from calibration. The algorithm ensures that the thermal images align correctly with RGB data for accurate pixel-level mapping when using a combined approach.
+
 Key Features:
 
     Corrects thermal image distortion caused by wide-angle lenses.
@@ -37,7 +38,7 @@ Key Features:
 
 Results
 
-The /Results/ folder contains the processed thermal and RGB images and resulting cow detection and tracking in real-time video streams.
+The /Results/ folder contains the processed thermal and RGB for cow detection and tracking in real-time video streams.
 
 Results Folder:
 
@@ -51,7 +52,7 @@ Usage
 
     Undistortion Algorithm:
         Use undistortion_algorithm.py to correct image distortion in thermal-RGB imagery from 
-        UAV footage before performing further analysis.
+        UAV video before performing further analysis.
 
 Acknowledgments
 
