@@ -31,10 +31,12 @@ Results Folder:
 Usage
 
     Centroid Tracker:
-        To use the centroid tracker, run centroid_tracker.py with your video input to track cows and analyze their positions over time.
+        To use the centroid tracker, run centroid_tracker.py with your video input to track cows and 
+        analyze their positions over time.
 
     Undistortion Algorithm:
-        Use undistortion_algorithm.py to correct image distortion in thermal-RGB imagery from UAV footage before performing further analysis.
+        Use undistortion_algorithm.py to correct image distortion in thermal-RGB imagery from 
+        UAV footage before performing further analysis.
 
 Acknowledgments
 
