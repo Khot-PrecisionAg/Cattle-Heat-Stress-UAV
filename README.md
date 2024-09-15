@@ -39,6 +39,7 @@ Usage
 Acknowledgments
 
 This project was developed by by Keshawa M. Dadallage from WSU Precision Agriculture group.
+
 License
 
 This project is licensed under the Creative Commons Attribution (CC BY) license. Please refer to LICENSE for more details.
