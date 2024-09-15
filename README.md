@@ -7,26 +7,40 @@ This repository contains algorithms and results for monitoring cattle heat stres
 The repository includes the following algorithms located in the /Algorithms/ directory:
 1. centroid_tracker.py
 
-This script implements a Centroid Tracker using a combination of Mask R-CNN and Centroid Tracking Algorithm to detect and track individual cows in thermal and RGB video frames. The tracker registers, updates, and tracks the centroids of cows, ensuring real-time monitoring even when cows disappear from the frame temporarily.
-Key Functions:
+The Centroid Tracker algorithm effectively tracks individual cows in thermal and RGB video frames captured by UAVs, preventing duplicate identification. This is crucial for real-time video streams, as duplicated identification can occur due to the nature of waypoint navigation systems.
 
-    register(centroid): Registers a new object (cow) in the system with its centroid.
-    deregister(objectID): Removes a cow that has disappeared beyond a specified threshold.
-    update(rects): Updates the position of tracked cows based on new input from the UAV video frames.
+The algorithm assigns unique identifiers (IDs) to each cow detected by the instance segmentation model, tracking their movement across consecutive frames. It uses a distance matrix to match cow centroids between frames, ensuring accurate tracking without duplicate counting. The centroid tracker adapts to dynamic settings in large feedlots, adjusting for occlusions and movement.
+Key Features:
+
+    Prevents duplicate cow identification across frames.
+    Assigns unique IDs to cows and tracks their movements in real-time.
+    Ensures accurate and continuous monitoring in large-scale drylot environments.
+
+Process:
+
+    Calculates centroids of bounding boxes from segmentation model outputs.
+    Uses a distance matrix and linear assignment algorithm to match centroids between frames.
+    Registers new cows and deregisters those absent for an extended duration.
+    Ensures reliable tracking and prevents duplicates.
 
 2. undistortion_algorithm.py
 
-This algorithm provides a method to undistort thermal-RGB images captured by UAVs. It utilizes camera calibration matrices (intrinsic and distortion coefficients) to correct for image distortion caused by the UAV's camera.
-Key Functions:
+This algorithm provides a thermal image distortion correction method. It addresses radial distortion in UAV thermal images due to wide-angle lenses by using camera calibration parameters. The corrected images are then used for further processing, such as body surface temperature extraction.
 
-    undis(cv_img): Takes the input image, applies undistortion using the camera calibration matrix, and returns the corrected image along with its dimensions.
+Thermal images were corrected using the camera matrix and distortion coefficients obtained from calibration. The algorithm ensures that the thermal images align correctly with RGB data for accurate pixel-level mapping when using a combined approach.
+Key Features:
+
+    Corrects thermal image distortion caused by wide-angle lenses.
+    Uses pre-calibrated camera matrices and distortion coefficients.
+    Ensures proper alignment for pixel-to-pixel mapping between RGB and thermal images.
 
 Results
 
-Processed thermal and RGB images can be found in the /Results/ directory. These results demonstrate successful cow detection in both types of imagery.
+The /Results/ folder contains the processed thermal and RGB images and resulting cow detection and tracking in real-time video streams.
+
 Results Folder:
 
-    Detected cows in thermal and RGB images for various test scenarios.
+    Detected cows in thermal and RGB images.
 
 Usage
 
