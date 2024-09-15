@@ -10,6 +10,7 @@ The repository includes the following algorithms located in the /Algorithms/ dir
 The Centroid Tracker algorithm effectively tracks individual cows in thermal and RGB video frames captured by UAVs, preventing duplicate identification. This is crucial for real-time video streams, as duplicated identification can occur due to the nature of waypoint navigation systems.
 
 The algorithm assigns unique identifiers (IDs) to each cow detected by the instance segmentation model, tracking their movement across consecutive frames. It uses a distance matrix to match cow centroids between frames, ensuring accurate tracking without duplicate counting. The centroid tracker adapts to dynamic settings in large feedlots, adjusting for occlusions and movement.
+
 Key Features:
 
     Prevents duplicate cow identification across frames.
